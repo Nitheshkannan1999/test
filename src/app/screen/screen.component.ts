@@ -22,7 +22,6 @@ export class ScreenComponent implements OnInit {
     this.cafeserviceService.getData().subscribe(data =>
       {
         this.source = data;
-        console.log(this.source);
         this.title =data[0].restaurant_name;
         this.table_menu_list = this.source[0].table_menu_list;
         this.table_menu_list.forEach((list) =>{
@@ -43,7 +42,7 @@ export class ScreenComponent implements OnInit {
        
         if(iterlist.menu_category === param)
         {
-          console.log(iterlist.menu_category,"heeeeeeeeeeee",param);
+          
           this.ItemsUnderCategories = iterlist.category_dishes;
           
         }
