@@ -1,0 +1,49 @@
+<div>
+
+<div style="position: sticky">
+    <!-- heading and order title -->
+<div class = "flexheading">
+    <h2>{{ title }}</h2>
+    <h4>Orders {{ order }}</h4>
+</div>
+
+    <!-- navigation bar -->
+<div>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <a #navbar class="navbar-brand" href="#" *ngFor = "let iter of table_menu_list" (click) = changeCategory(iter.menu_category) >{{ iter.menu_category }}</a>
+      
+    </nav>
+</div>
+</div>
+
+<!-- items categories -->
+<div class = "flexbox" *ngFor = "let iter of ItemsUnderCategories" >
+    <div>
+        <h4><input class = "radio" type="radio"><b>{{ iter.dish_name }}</b></h4>
+    </div>
+    <div>
+        <b>SAR : {{ iter.dish_price }}</b>
+        <span class = "leftalign"><b>{{ iter.dish_calories }} Calories </b></span>
+    </div>
+    <div>
+        {{ iter.dish_description}}
+    </div>
+    <div> 
+        <img src =  "{{iter.dish_image}}"  >
+    </div>
+
+    <div>
+        <span>
+        <button type="button" class="btn btn-success" (click)="incr(iter)">+</button>
+        {{ iter.value }}
+        <button type="button" class="btn btn-success" (click)="decr(iter)">-</button>
+    </span>
+    </div>
+
+    <div *ngIf = "iter.addonCat.length > 0">
+        <p  style="color: red" ><b>Customizations available</b></p>
+    </div>
+    <hr>
+</div>
+
+</div>
